@@ -1,0 +1,16 @@
+﻿@model DirectLine.Controllers.Chat
+
+<h2>Direct Line Bot v3 Test</h2>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <p>
+        Hello: @((User.Identity.IsAuthenticated == true)
+        ? User.Identity.Name
+        : "[Desconocido]")
+    </p>
+    @Html.TextBoxFor(m => m.ChatMessage,
+    new { style = "width:600px"})
+    <input type="submit" value="Enviar" />
+}
+<br />
+<p>@Html.Raw(Model.ChatResponse)</p>
